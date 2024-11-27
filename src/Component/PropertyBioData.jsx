@@ -22,6 +22,7 @@ export const PropertyBioData=()=>{
 
     useEffect(() => {
         // Ensure `loaderData` is available and contains the data
+        window.scrollTo(0,0);
         if (properties && name) {
           // Filter the `loaderData` to find the card with matching `id`
           const filteredData = properties.filter(item => item.name===name);
