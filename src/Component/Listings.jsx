@@ -35,8 +35,8 @@ export const Listings=()=>{
         </div>
         <div className="grid gap-x-0 grid-cols-12 justify-center align-center mx-8">
         
-        <div className=" mx-1 my-8 col-span-3 shadow-xl bg-gray-100 px-1">
-            <h1 className="my-1 font-semibold text-2xl tracking-wide text-center py-4 px-1">Filters</h1>
+        <div className=" mx-1 my-8 col-span-3 shadow-xl bg-gray-100 px-1 border border-gray-300">
+            <h1 className="my-1 font-semibold text-2xl tracking-wide text-center py-4 px-1 border-b-2 ">Filters</h1>
             <div className="flex flex-col items-center my-10 ">
                 <input
                     type="range"
@@ -44,19 +44,21 @@ export const Listings=()=>{
                     name="minVal"
                     min="50000"
                     max="100000"
+                    step="5000"
                     value={filters.minVal}
                     onChange={handleFilterChange}
                     className=" h-2 w-4/5 bg-gray-200 rounded-lg cursor-pointer"
                 />
                 <span className="mt-2 text-lg tracking-tight">Min Price : {filters.minVal}</span>
             </div>
-            <div className="flex flex-col items-center my-10">
+            <div className="flex flex-col items-center my-10 border-b-2">
                 <input
                     type="range"
                     id="maxVal"
                     name="maxVal"
                     min="500000"
                     max="1000000"
+                    step="5000"
                     value={filters.maxVal}
                     onChange={handleFilterChange}
                     className=" h-2 w-4/5 bg-gray-200 rounded-lg cursor-pointer"
