@@ -23,11 +23,11 @@ export const Header=()=>{
 
   return (
     <>
-      <div className="flex font-sans z-10  text-center sticky top-0 font-medium text-gray-100 bg-gray-700 shadow-lg justify-between items-center  mx-auto px-10 min-h-12">
+      <div className="flex font-serif z-10  text-center sticky top-0 font-medium text-gray-100 bg-gray-700 shadow-lg justify-between items-center  mx-auto px-10 min-h-12">
         
         <div>
           <Link to="/" className="text-2xl text-nowrap transform transition-transform duration-300 hover:shadow-lg pr-10 mr-10 tracking-tighter">
-            Comfort Stays
+            Home Bells
           </Link>
         </div>
 

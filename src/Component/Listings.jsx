@@ -5,13 +5,14 @@ import { CiLocationOn } from "react-icons/ci";
 
 
 export const Listings=()=>{
-    const data=useLoaderData().properties;
+    const[data,setData]=useState(useLoaderData().properties);
+    const[filterProperties,SetFilterProperties]=useState(data);
     const[location,SetLocation]=useState('');
     const[filters,setFilters]=useState({
-        minVal:"",
-        maxVal:"",
-        bhk:"",
-        type:""
+        minVal:0,
+        maxVal:50000000,
+        bhk:1,
+        type:"apartment"
 
     })
     function handleLocationChange(e){
@@ -20,8 +21,34 @@ export const Listings=()=>{
     function handleFilterChange(e){
         const name=e.target.name;
         const val=e.target.value;
-        setFilters(prev=>({...prev,[name]:val}));
+        if(name==="minVal" || name==="maxVal"){
+            setFilters(prev=>({...prev,[name]:parseInt(val)}));
+        }
+        else 
+           setFilters(prev=>({...prev,[name]:val}));
         console.log(filters);
+    }
+    function onFilter(){
+        const newData=data.filter((item)=>
+             {
+                return(
+                    item.type.toLowerCase()=== filters.type.toLowerCase() 
+                    
+
+                );
+             }
+        );
+        console.log(newData);
+        SetFilterProperties(newData);
+        
+
+    }
+    function onReset(){
+        setFilters({minVal:0,
+            maxVal:50000000,
+            bhk:1,
+            type:"apartment"});
+
     }
     
     
@@ -42,8 +69,8 @@ export const Listings=()=>{
                     type="range"
                     id="minVal"
                     name="minVal"
-                    min="50000"
-                    max="100000"
+                    min="500000"
+                    max="10000000"
                     step="5000"
                     value={filters.minVal}
                     onChange={handleFilterChange}
@@ -56,8 +83,8 @@ export const Listings=()=>{
                     type="range"
                     id="maxVal"
                     name="maxVal"
-                    min="500000"
-                    max="1000000"
+                    min="5000000"
+                    max="50000000"
                     step="5000"
                     value={filters.maxVal}
                     onChange={handleFilterChange}
@@ -83,17 +110,18 @@ export const Listings=()=>{
                 <select className="rounded-md mt-4  w-3/4 text-sm p-1 outline-none focus:shadow-lg border border-gray-300 focus:outline-none focus:border-gray-700 "  id="type" name="type" value={filters.type} onChange={handleFilterChange}>
                     <option value="" disabled>Select type</option>
                     <option value="apartment">Apartment</option>
-                    <option value="studio">Studio room</option>
-                    <option value="pg">PG</option>
-                    <option value="townhall">Townhall</option>
+                    <option value="villa">Villa</option>
+                    <option value="cottage">Cottage</option>
+                    <option value="farmhouse">Farmhouse</option>
+                    <option value="penthouse">Penthouse</option>
                 </select>
                 
             </div>
             <div className="flex justify-center my-5 mx-4">
-                <button className='px-4 py-2 rounded-xl w-3/4 tracking-wider bg-green-800 text-white transform duration-200 hover:tracking-widest hover:shadow-xl' type="submit">Filter</button>
+                <button className='px-4 py-2 rounded-xl w-3/4 tracking-wider bg-green-800 text-white transform duration-200 hover:tracking-widest hover:shadow-xl' type="submit" onClick={onFilter}>Filter</button>
             </div>
             <div className="flex justify-center mx-4 my-2  ">
-                <button className='px-4 py-2 rounded-xl w-3/4 tracking-wider bg-red-800 text-white transform duration-200 hover:tracking-widest hover:shadow-xl' type="reset">Reset</button>
+                <button className='px-4 py-2 rounded-xl w-3/4 tracking-wider bg-red-800 text-white transform duration-200 hover:tracking-widest hover:shadow-xl' type="reset" onClick={onReset}>Reset</button>
             </div>
             
 
@@ -102,7 +130,7 @@ export const Listings=()=>{
         <div className="col-span-9">
 
         <ul className="grid lg:grid-cols-3 sm:grid-cols-2  justify.center items.center gap-6 gap-y-10 sm:mx-16 lg:mx-24 mx-16 my-10 p-4 ">
-            {data.map( (item, index) =>{
+            {filterProperties.map( (item, index) =>{
                 return (
                     <Card index={index} item={item}/>
 
