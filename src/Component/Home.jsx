@@ -39,7 +39,7 @@ export const Home=()=>{
 
             <div className="flex mt-4 p-2 flex flex-col justify-center items-center gap-4">
                 <h1 className="text-center font-semibold text-wrap tracking-tight opacity-70">Are you a property owner and want to list your property? </h1>
-                <Link to="/login" className="bg-red-900 hover:bg-red-800 duration-200 transition w-full text-center hover:scale-110 hover:rounded text-lg p-1 rounded-none text-white max-w-40">List Property</Link>
+                <Link to="/listproperty" className="bg-red-900 hover:bg-red-800 duration-200 transition w-full text-center hover:scale-110 hover:rounded text-lg p-1 rounded-none text-white max-w-40">List Property</Link>
             </div>
 
              

@@ -53,7 +53,7 @@ export const Header=()=>{
         {/* Navigation Links */}
         <div className="w-1/2 px-1 flex justify-right items-center gap-2">
           <nav className=" hidden lg:flex gap-6 justify-right items-center text-nowrap w-full">
-            <Link to="/" className="border-b-2 tracking-tighter border-transparent hover:border-gray-100 text-xl transform transition-transform duration-300 hover:scale-110 text-center hover:shadow-lg">
+            <Link to="/listproperty" className="border-b-2 tracking-tighter border-transparent hover:border-gray-100 text-xl transform transition-transform duration-300 hover:scale-110 text-center hover:shadow-lg">
               List Property
             </Link>
             <Link to="/listings" className="border-b-2 tracking-tighter border-transparent hover:border-gray-100 text-xl transform transition-transform duration-300 hover:scale-110 text-center hover:shadow-lg">
@@ -85,7 +85,7 @@ export const Header=()=>{
         {/* Dropdown Menu - Only visible on small screens and when dropdownOpen is true */}
         {dropdownOpen && (
             <div className=" absolute flex-col mb-3  top-10 right-0  w-full  bg-gray-700 text-white p-4 mt-2  shadow-xl lg:hidden border-t border-gray-50 border-opacity-50">
-              <Link to="/" className=" w-1/2 mx-auto block py-3 border-b-2 border-transparent transition duration-200 hover:border-gray-100 text-nowrap" onClick={toggleDropdown}>List Property</Link>
+              <Link to="/listproperty" className=" w-1/2 mx-auto block py-3 border-b-2 border-transparent transition duration-200 hover:border-gray-100 text-nowrap" onClick={toggleDropdown}>List Property</Link>
               <Link to="/listings" className=" w-1/2 mx-auto block py-3 border-b-2 border-transparent transition duration-200 hover:border-gray-100 text-nowrap" onClick={toggleDropdown}>Properties</Link>
               <Link to="/about" className="w-1/2 mx-auto block py-3 border-b-2 border-transparent transition duration-200 hover:border-gray-100 text-nowrap" onClick={toggleDropdown}>My Profile</Link>
               <Link to="/contact" className="w-1/2 mx-auto block py-3 border-b-2 border-transparent transition duration-200 hover:border-gray-100 text-nowrap" onClick={toggleDropdown}>Settings</Link>

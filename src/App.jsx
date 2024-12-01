@@ -9,6 +9,7 @@ import  { Signup,signupData} from './Component/Signup.jsx';
 import { Listings } from './Component/Listings.jsx';
 import { PropertyDetails } from './api/propertyDetails.jsx';
 import { PropertyBioData } from './Component/PropertyBioData.jsx';
+import { PropertyList } from './Component/PropertyList.jsx';
 
 
 function App() {
@@ -42,6 +43,10 @@ function App() {
           loader:PropertyDetails
 
 
+         },
+         {
+          path:"/listproperty",
+          element:<PropertyList/>
          }
 
       ]
